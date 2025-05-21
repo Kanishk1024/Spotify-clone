@@ -10,7 +10,8 @@ class AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
-        textStyle: TextStyle(
+        foregroundColor: Colors.white,
+        textStyle: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
@@ -29,7 +30,8 @@ class AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
-        textStyle: TextStyle(
+        foregroundColor: Colors.white,
+        textStyle: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
