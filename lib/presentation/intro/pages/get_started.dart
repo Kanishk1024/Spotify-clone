@@ -57,7 +57,7 @@ class GetStartedPage extends StatelessWidget {
                   const SizedBox(height: 21),
                   BasicAppButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (BuildContext context) =>
