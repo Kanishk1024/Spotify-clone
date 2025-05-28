@@ -7,7 +7,6 @@ import 'package:spotify/presentation/auth/pages/sign_up.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +68,7 @@ class SignInPage extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const SignUpPage(),
+                  builder: (context) => SignUpPage(),
                 ),
               );
             },
