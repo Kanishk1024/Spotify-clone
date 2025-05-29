@@ -46,14 +46,14 @@ class SignUpPage extends StatelessWidget {
               const SizedBox(height: 30),
               BasicAppButton(
                   onPressed: () async {
-                    Either result = await sl<Usecase>().call(
+                    Either response = await sl<Usecase>().call(
                       params: CreateUserReq(
                         fullName: _fullName.text.toString(),
                         email: _email.text.toString(),
                         password: _password.text.toString(),
                       ),
                     );
-                    return result.fold(
+                    return response.fold(
                       (l) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -119,7 +119,7 @@ class SignUpPage extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (BuildContext context) => const SignInPage(),
+                  builder: (BuildContext context) => SignInPage(),
                 ),
               );
             },
