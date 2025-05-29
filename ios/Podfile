@@ -39,7 +39,35 @@ target 'Runner' do
 end
 
 post_install do |installer|
+  # Add this loop here to set the deployment target for all pods
   installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0' # Set your desired target here
+    end
+  end
+  # Keep the existing flutter_additional_ios_build_settings(target) call
+  # It seems `flutter_additional_ios_build_settings` also accepts `installer` as an argument
+  # based on your previous suggestion, but typically it expects a `target`.
+  # Let's use the one that makes sense for the whole installer context or apply to each target.
+
+  # If flutter_additional_ios_build_settings expects 'target' as its argument,
+  # you should call it inside the `target.build_configurations.each` loop, or
+  # more likely, it applies broadly, and the current structure is fine.
+  # Given the original Podfile, it applies per target, so we need to adjust.
+
+  # Let's adjust the `flutter_additional_ios_build_settings` call to be inside the target loop
+  # if that's how it's intended to be used (which is typical for per-target settings).
+  # If it modifies the whole project, the original location might be fine.
+
+  # Based on standard Flutter Podfile setup, `flutter_additional_ios_build_settings(target)`
+  # is usually called for each `target`.
+
+  # Modified `post_install` block:
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0' # Set your desired target here
+    end
+    # Ensure flutter's additional build settings are applied per target
     flutter_additional_ios_build_settings(target)
   end
 end
