@@ -5,8 +5,10 @@ import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/data/models/auth/signin_user_req.dart';
 import 'package:spotify/domain/usecases/auth/signin.dart';
+import 'package:spotify/presentation/auth/pages/forgot_pass.dart';
 import 'package:spotify/presentation/auth/pages/sign_up.dart';
 import 'package:spotify/presentation/root/pages/root.dart';
+import 'package:spotify/service_locator.dart';
 
 class SignInPage extends StatelessWidget {
   final TextEditingController _email = TextEditingController();
@@ -36,10 +38,28 @@ class SignInPage extends StatelessWidget {
               _emailField(context),
               const SizedBox(height: 20),
               _passwordField(context),
-              const SizedBox(height: 30),
+              const SizedBox(height: 15),
+              Align(
+                alignment: Alignment.centerRight,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => ForgotPassPage(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    'Forgot Password',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
               BasicAppButton(
                 onPressed: () async {
-                  var response = await SigninUseCase().call(
+                  var response = await sl<SigninUseCase>().call(
                     params: SigninUserReq(
                       email: _email.text.toString(),
                       password: _password.text.toString(),

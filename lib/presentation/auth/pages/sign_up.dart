@@ -6,6 +6,7 @@ import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/core/usecase/usecase.dart';
 import 'package:spotify/data/models/auth/create_user_req.dart';
+import 'package:spotify/domain/usecases/auth/signup.dart';
 import 'package:spotify/presentation/auth/pages/sign_in.dart';
 import 'package:spotify/presentation/root/pages/root.dart';
 import 'package:spotify/service_locator.dart';
@@ -46,7 +47,7 @@ class SignUpPage extends StatelessWidget {
               const SizedBox(height: 30),
               BasicAppButton(
                   onPressed: () async {
-                    Either response = await sl<Usecase>().call(
+                    Either response = await sl<SignupUseCase>().call(
                       params: CreateUserReq(
                         fullName: _fullName.text.toString(),
                         email: _email.text.toString(),

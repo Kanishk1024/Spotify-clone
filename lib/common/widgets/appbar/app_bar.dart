@@ -11,6 +11,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: picture ?? const Text(''),
       elevation: 0,
       iconTheme: const IconThemeData(),
+      centerTitle: true,
     );
   }
 
