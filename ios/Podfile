@@ -43,7 +43,9 @@ post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0' # Set your desired target here
+
     end
+    flutter_additional_ios_build_settings(target)
   end
   # Keep the existing flutter_additional_ios_build_settings(target) call
   # It seems `flutter_additional_ios_build_settings` also accepts `installer` as an argument
@@ -63,11 +65,11 @@ post_install do |installer|
   # is usually called for each `target`.
 
   # Modified `post_install` block:
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0' # Set your desired target here
-    end
+  # installer.pods_project.targets.each do |target|
+  #   target.build_configurations.each do |config|
+  #     config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0' # Set your desired target here
+  #   end
     # Ensure flutter's additional build settings are applied per target
-    flutter_additional_ios_build_settings(target)
-  end
+  #   flutter_additional_ios_build_settings(target)
+  # end
 end

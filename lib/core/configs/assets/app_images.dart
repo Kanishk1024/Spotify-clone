@@ -4,4 +4,5 @@ class AppImages {
   static final String introBG = '${basePath}intro_bg.png';
   static final String chooseModeBG = '${basePath}choose_mode_bg.png';
   static final String authBG = '${basePath}auth_bg.png';
+  static final String homeArtist = '${basePath}home_artist.png';
 }
