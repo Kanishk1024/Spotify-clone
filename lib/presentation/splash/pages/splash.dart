@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/presentation/intro/pages/get_started.dart';
+import 'package:spotify/presentation/root/pages/root.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -22,7 +24,19 @@ class _SplashPageState extends State<SplashPage> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => const GetStartedPage(),
+        builder: (BuildContext context) => StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, asyncSnapshot) {
+            if (asyncSnapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator.adaptive();
+            }
+            if (asyncSnapshot.data != null) {
+              return const RootPage();
+            } else {
+              return const GetStartedPage();
+            }
+          },
+        ),
       ),
     );
   }
