@@ -47,7 +47,7 @@ app.*.map.json
 # Firebase/Google Services
 android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
-
+macos/Runner/GoogleService-Info.plist
 # MacOS
 .DS_Store
 
