@@ -16,11 +16,11 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       actions: [
         if (isSignOut == true)
-          ElevatedButton(
+          IconButton(
             onPressed: () {
               FirebaseAuth.instance.signOut();
             },
-            child: const Text('Sign Out'),
+            icon: const Icon(Icons.logout_rounded),
           )
       ],
     );

@@ -21,7 +21,7 @@ class _SplashPageState extends State<SplashPage> {
 
   Future<void> redirect() async {
     await Future.delayed(const Duration(seconds: 2));
-    Navigator.pushReplacement(
+    Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(
         builder: (BuildContext context) => StreamBuilder(
@@ -32,12 +32,13 @@ class _SplashPageState extends State<SplashPage> {
             }
             if (asyncSnapshot.data != null) {
               return const RootPage();
-            } else {
-              return const GetStartedPage();
             }
+
+            return const GetStartedPage();
           },
         ),
       ),
+      (route) => false,
     );
   }
 

@@ -26,6 +26,7 @@ class _RootPageState extends State<RootPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BasicAppBar(
+        isSignOut: true,
         picture: SvgPicture.asset(
           AppVectors.logo,
           height: 40,
