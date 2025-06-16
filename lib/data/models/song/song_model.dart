@@ -5,29 +5,30 @@ class SongModel {
   late String title;
   late String artist;
   late num duration;
-  late Timestamp releaseDate;
+  late Timestamp release;
 
   SongModel({
     required this.title,
     required this.artist,
     required this.duration,
-    required this.releaseDate,
+    required this.release,
   });
 
   SongModel.fromJson(Map<String, dynamic> data) {
-    title = data['title'] as String;
-    artist = data['artist'] as String;
-    duration = data['duration'] as num;
-    releaseDate = data['releaseDate'] as Timestamp;
+    title = data['title'];
+    artist = data['artist'];
+    duration = data['duration'];
+    release = data['release'];
   }
 }
 
 extension SongModelX on SongModel {
   SongEntities toEntity() {
     return SongEntities(
-        title: title,
-        artist: artist,
-        duration: duration,
-        releaseDate: releaseDate);
+      title: title,
+      artist: artist,
+      duration: duration,
+      release: release,
+    );
   }
 }

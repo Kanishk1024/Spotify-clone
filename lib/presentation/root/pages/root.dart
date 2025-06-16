@@ -4,6 +4,7 @@ import 'package:spotify/common/helpers/is_dark_mode.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
+import 'package:spotify/presentation/root/widgets/news_songs.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({super.key});
@@ -34,12 +35,25 @@ class _RootPageState extends State<RootPage>
         ),
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _homeTopCard(),
             _tabs(),
+            SizedBox(
+              height: 260,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  const NewsSongs(),
+                  Container(),
+                  Container(),
+                  Container(),
+                ],
+              ),
+            )
           ],
         ),
       ),
@@ -73,10 +87,11 @@ class _RootPageState extends State<RootPage>
       isScrollable: true,
       controller: _tabController,
       labelColor: context.isDarkMode ? Colors.white : Colors.black,
-      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
       labelStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
       indicatorColor: Theme.of(context).primaryColor,
       tabAlignment: TabAlignment.center,
+      dividerColor: Colors.transparent,
       tabs: [
         const Text('News'),
         const Text('Videos'),
