@@ -5,6 +5,7 @@ import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/presentation/root/widgets/news_songs.dart';
+import 'package:spotify/presentation/root/widgets/play_list.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({super.key});
@@ -53,7 +54,8 @@ class _RootPageState extends State<RootPage>
                   Container(),
                 ],
               ),
-            )
+            ),
+            const PlayList(),
           ],
         ),
       ),
