@@ -1,16 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final SvgPicture? picture;
+  final Widget? title;
   final bool isSignOut;
-  const BasicAppBar({super.key, this.picture, this.isSignOut = false});
+
+  const BasicAppBar({super.key, this.title, this.isSignOut = false});
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
-      title: picture ?? const Text(''),
+      title: title ?? const Text(''),
       elevation: 0,
       iconTheme: const IconThemeData(),
       centerTitle: true,

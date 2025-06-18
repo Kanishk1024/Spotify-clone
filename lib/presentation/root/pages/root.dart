@@ -29,7 +29,7 @@ class _RootPageState extends State<RootPage>
     return Scaffold(
       appBar: BasicAppBar(
         isSignOut: true,
-        picture: SvgPicture.asset(
+        title: SvgPicture.asset(
           AppVectors.logo,
           height: 40,
           width: 40,

@@ -15,7 +15,7 @@ class ForgotPassPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BasicAppBar(
-        picture: SvgPicture.asset(
+        title: SvgPicture.asset(
           AppVectors.logo,
           height: 40,
           width: 40,

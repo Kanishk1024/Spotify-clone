@@ -19,7 +19,7 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: _signUpText(context),
       appBar: BasicAppBar(
-        picture: SvgPicture.asset(
+        title: SvgPicture.asset(
           AppVectors.logo,
           height: 40,
           width: 40,

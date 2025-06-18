@@ -1,5 +1,8 @@
 class AppURLs {
-  static const firestorage =
+  static const coverFirestorage =
       'https://firebasestorage.googleapis.com/v0/b/spotify-clone-41988.firebasestorage.app/o/covers%2F';
+
+  static const songFirestorage =
+      'https://firebasestorage.googleapis.com/v0/b/spotify-clone-41988.firebasestorage.app/o/songs%2F';
   static const mediaAlt = 'alt=media';
 }
