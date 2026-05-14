@@ -1,6 +1,6 @@
-# Spotify Clone 🎵
+# Music Streaming App 🎵
 
-A cross-platform Spotify-inspired music streaming app built with **Flutter**, featuring clean architecture, Firebase integration, Bloc state management, and persistent theming.
+A cross-platform music streaming app built with **Flutter**, featuring clean architecture, Firebase integration, Bloc state management, and persistent theming.
 
 ## Features
 
